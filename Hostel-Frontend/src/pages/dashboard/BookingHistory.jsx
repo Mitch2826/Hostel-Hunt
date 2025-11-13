@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useBooking } from '../../contexts/BookingContext.jsx';
+import { useBooking } from '../../context/BookingContext.jsx';
 
 export default function BookingHistory() {
   const { bookings, getHostelById } = useBooking();

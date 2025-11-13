@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { useBooking } from '../../contexts/BookingContext.jsx';
+import { useBooking } from '../../context/BookingContext.jsx';
 
 export default function ConfirmationPage() {
   const { bookingId } = useParams();
