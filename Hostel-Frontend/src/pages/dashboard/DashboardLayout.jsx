@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 export default function DashboardLayout() {
   const { user, logout } = useAuth();

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useBooking } from '../../contexts/BookingContext.jsx';
-import { mockHostels } from '../../mocks/bookingData.js';
+import { useBooking } from '../../context/BookingContext.jsx';
+import { mockHostels } from '../../mocks/bookingData.jsx';
 
 export default function Favorites() {
   const { favorites, toggleFavorite } = useBooking();

@@ -1,16 +1,15 @@
-import { createContext, useState, useEffect } from 'react';
-import { mockBookings, mockHostels } from '../mocks/bookingData.js';
+import { createContext, useState, useEffect, useContext } from 'react';
+import { mockBookings, mockHostels } from '../mocks/bookingData.jsx';
 
-const BookingContext = createContext();
+export const BookingContext = createContext();
 
 export function BookingProvider({ children }) {
   const [bookings, setBookings] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    // Load mock data
     setBookings(mockBookings);
-    setFavorites([1, 3]); // Mock favorites
+    setFavorites([1, 3]);
   }, []);
 
   const createBooking = (bookingData) => {
@@ -32,13 +31,9 @@ export function BookingProvider({ children }) {
     );
   };
 
-  const getHostelById = (id) => {
-    return mockHostels.find(hostel => hostel.id === parseInt(id));
-  };
+  const getHostelById = (id) => mockHostels.find(h => h.id === parseInt(id));
 
-  const getBookingById = (id) => {
-    return bookings.find(booking => booking.id === parseInt(id));
-  };
+  const getBookingById = (id) => bookings.find(b => b.id === parseInt(id));
 
   const value = {
     bookings,
@@ -56,4 +51,5 @@ export function BookingProvider({ children }) {
   );
 }
 
-export { BookingContext };
+//  Export the hook for convenience
+export const useBooking = () => useContext(BookingContext);

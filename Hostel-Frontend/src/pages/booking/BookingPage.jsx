@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useBooking } from '../../contexts/BookingContext.jsx';
+import { useBooking } from '../../context/BookingContext.jsx';
 
 export default function BookingPage() {
   const { hostelId } = useParams();
