@@ -3,6 +3,8 @@ from config import Config
 # app/__init__.py
 from .routes.admin import admin_bp  # your admin routes
 
+# Import CORS
+from flask_cors import CORS
 
 # Import extensions
 from .extensions.db import db
@@ -40,6 +42,12 @@ def create_app():
     """Create and configure the Flask application."""
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    # Initialize CORS
+    CORS(app, origins=app.config['CORS_ORIGINS'],
+         methods=app.config['CORS_METHODS'],
+         allow_headers=app.config['CORS_ALLOW_HEADERS'],
+         supports_credentials=app.config['CORS_SUPPORTS_CREDENTIALS'])
 
     # Initialize extensions
     db.init_app(app)

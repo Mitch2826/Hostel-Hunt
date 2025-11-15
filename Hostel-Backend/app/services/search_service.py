@@ -209,20 +209,36 @@ class SearchService:
     @staticmethod
     def get_price_ranges():
         """Get price range statistics"""
+        # Get basic stats
         price_stats = db.session.query(
             func.min(Hostel.price).label('min_price'),
             func.max(Hostel.price).label('max_price'),
-            func.avg(Hostel.price).label('avg_price'),
-            func.percentile_cont(0.25).within_group(Hostel.price).label('q1'),
-            func.percentile_cont(0.75).within_group(Hostel.price).label('q3')
+            func.avg(Hostel.price).label('avg_price')
         ).first()
+
+        # Get percentiles manually for SQLite compatibility
+        all_prices = db.session.query(Hostel.price).filter(Hostel.price.isnot(None)).all()
+        prices = sorted([p[0] for p in all_prices if p[0] is not None])
+
+        if not prices:
+            return {
+                'min_price': 0,
+                'max_price': 0,
+                'avg_price': 0,
+                'q1_price': 0,
+                'q3_price': 0
+            }
+
+        n = len(prices)
+        q1_index = int(0.25 * (n - 1))
+        q3_index = int(0.75 * (n - 1))
 
         return {
             'min_price': float(price_stats.min_price or 0),
             'max_price': float(price_stats.max_price or 0),
             'avg_price': float(price_stats.avg_price or 0),
-            'q1_price': float(price_stats.q1 or 0),
-            'q3_price': float(price_stats.q3 or 0)
+            'q1_price': float(prices[q1_index]),
+            'q3_price': float(prices[q3_index])
         }
 
     @staticmethod
