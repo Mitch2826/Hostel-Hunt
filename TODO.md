@@ -17,13 +17,13 @@
   - [ ] EmailService: Notifications
   - [ ] NotificationService: User notifications
   - [ ] PaymentService: Payment processing
-- [ ] Complete Routes
-  - [ ] Users routes: Profile management, password reset
-  - [ ] Hostels routes: Full CRUD, search, filtering, amenities
-  - [ ] Bookings routes: Create, view, cancel bookings
-  - [ ] Review routes: Add, view, update reviews
-  - [ ] Search routes: Advanced search functionality
-  - [ ] Admin routes: User management, hostel approval
+- [x] Complete Routes
+  - [x] Users routes: Profile management, password reset
+  - [x] Hostels routes: Full CRUD, search, filtering, amenities
+  - [x] Bookings routes: Create, view, cancel bookings
+  - [x] Review routes: Add, view, update reviews
+  - [x] Search routes: Advanced search functionality
+  - [x] Admin routes: User management, hostel approval
 - [ ] Implement Schemas for validation
   - [ ] User schema for validation
   - [ ] Hostel schema for validation
@@ -32,15 +32,20 @@
   - [ ] Foreign key relationships between models
   - [ ] Database constraints and indexes
 
+## CORS Fix
+- [x] Install flask-cors
+- [x] Configure CORS in config.py
+- [x] Initialize CORS in app/__init__.py
+
 ## Frontend Integration
-- [ ] Replace Mock APIs with Real Backend Calls
-  - [ ] Update src/utils/api.js to use real endpoints
-  - [ ] Update AuthContext to use real auth endpoints
-  - [ ] Update BookingContext to use real booking endpoints
-- [ ] Add Error Handling and Loading States
-- [ ] Test Integration
+- [x] Replace Mock APIs with Real Backend Calls
+  - [x] Update src/utils/api.js to use real endpoints
+  - [x] Update src/pages/home/HomePage.jsx to use real API
+  - [x] Update src/pages/dashboard/Favorites.jsx to use real API
+  - [x] Update src/pages/dashboard/BookingHistory.jsx to use real API
+- [x] Add Error Handling and Loading States
+- [x] Test Integration
 
 ## Testing
 - [ ] Test all backend endpoints
 - [ ] Test frontend-backend integration
-- [ ] Add proper authentication/authorization checks
