@@ -17,13 +17,13 @@
   - [ ] EmailService: Notifications
   - [ ] NotificationService: User notifications
   - [ ] PaymentService: Payment processing
-- [ ] Complete Routes
-  - [ ] Users routes: Profile management, password reset
-  - [ ] Hostels routes: Full CRUD, search, filtering, amenities
-  - [ ] Bookings routes: Create, view, cancel bookings
-  - [ ] Review routes: Add, view, update reviews
-  - [ ] Search routes: Advanced search functionality
-  - [ ] Admin routes: User management, hostel approval
+- [x] Complete Routes
+  - [x] Users routes: Profile management, password reset
+  - [x] Hostels routes: Full CRUD, search, filtering, amenities
+  - [x] Bookings routes: Create, view, cancel bookings
+  - [x] Review routes: Add, view, update reviews
+  - [x] Search routes: Advanced search functionality
+  - [x] Admin routes: User management, hostel approval
 - [ ] Implement Schemas for validation
   - [ ] User schema for validation
   - [ ] Hostel schema for validation

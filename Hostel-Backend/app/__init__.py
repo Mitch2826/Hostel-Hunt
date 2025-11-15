@@ -15,9 +15,25 @@ except Exception:
 # Import blueprints
 from .routes.auth import auth_bp
 try:
-    from .routes.hostels import bp as hostels_bp
+    from .routes.hostels import hostels_bp
 except Exception:
     hostels_bp = None
+try:
+    from .routes.users import users_bp
+except Exception:
+    users_bp = None
+try:
+    from .routes.bookings import bookings_bp
+except Exception:
+    bookings_bp = None
+try:
+    from .routes.review import reviews_bp
+except Exception:
+    reviews_bp = None
+try:
+    from .routes.search import search_bp
+except Exception:
+    search_bp = None
 
 
 def create_app():
@@ -41,7 +57,14 @@ def create_app():
     app.register_blueprint(auth_bp)
     if hostels_bp is not None:
         app.register_blueprint(hostels_bp, url_prefix="/hostels")
-
+    if users_bp is not None:
+        app.register_blueprint(users_bp, url_prefix="/users")
+    if bookings_bp is not None:
+        app.register_blueprint(bookings_bp, url_prefix="/bookings")
+    if reviews_bp is not None:
+        app.register_blueprint(reviews_bp, url_prefix="/reviews")
+    if search_bp is not None:
+        app.register_blueprint(search_bp, url_prefix="/search")
 
     # Register admin blueprint
     app.register_blueprint(admin_bp, url_prefix="/admin")
